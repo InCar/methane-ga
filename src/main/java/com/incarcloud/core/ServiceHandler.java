@@ -6,6 +6,9 @@ package com.incarcloud.core;
  */
 public class ServiceHandler {
 
+    /**
+     * 数据经过简单处理后发送给P
+     */
     public void doService(){
 
     }

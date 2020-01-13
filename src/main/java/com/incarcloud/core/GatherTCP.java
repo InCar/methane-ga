@@ -6,4 +6,20 @@ package com.incarcloud.core;
  */
 public class GatherTCP extends Gather{
 
+    /**
+     * 启动采集器实现
+     */
+    @Override
+    public void start() {
+
+    }
+
+    /**
+     * 停止采集器实现
+     */
+    @Override
+    public void stop() {
+
+    }
+
 }
