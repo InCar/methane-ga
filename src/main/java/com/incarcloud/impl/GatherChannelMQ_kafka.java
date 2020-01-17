@@ -17,7 +17,7 @@ public class GatherChannelMQ_kafka extends GatherChannelMQ {
     static LinkedBlockingQueue<byte[]> DATA_QUEUE =new LinkedBlockingQueue<>();
 
     @Override
-    public void doChannel() {
+    public void doChannel(HelloV helloV) {
         while(true){
             byte[] data= DATA_QUEUE.poll();
             try {
