@@ -14,6 +14,13 @@ allprojects {
     dependencies {
         //springboot web支持
         compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+        compile group: 'org.apache.kafka', name: 'kafka-clients', version: '0.9.0.1'
+        // https://mvnrepository.com/artifact/io.grpc/grpc-all
+        compile group: 'io.grpc', name: 'grpc-all', version: '1.26.0'
+        //json
+        compile("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
+        compile("com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
+        compile("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
         testCompile group: 'junit', name: 'junit', version: '4.+'
     }
 
@@ -31,6 +38,8 @@ bootRun {
 buildscript {
     ext {
         springBootVersion='2.1.4.RELEASE'
+        kafkaVersion='+'
+        jacksonVersion='+'
         mavenRepoUrl = 'http://maven.aliyun.com/nexus/content/groups/public/'
     }
     repositories {
