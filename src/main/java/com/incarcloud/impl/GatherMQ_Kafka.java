@@ -1,6 +1,8 @@
 package com.incarcloud.impl;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.incarcloud.config.kafka.ProducerUtil;
+import com.incarcloud.std.HelloV;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -30,8 +32,13 @@ public class GatherMQ_Kafka extends AbstractConsumer<String,byte[]> implements A
 
     @Override
     public void onMessage(ConsumerRecord<String, byte[]> consumerRecord) {
-        System.out.println(new String(consumerRecord.value()));
-        gatherChannelMQ_kafka.store(consumerRecord.value());
+        try {
+            HelloV.HelloRequestV1 requestV1= HelloV.HelloRequestV1.parseFrom(consumerRecord.value());
+            logger.info("receive[{}]",requestV1.getVin());
+            gatherChannelMQ_kafka.doChannel(requestV1);
+        } catch (InvalidProtocolBufferException e) {
+            logger.error("parse error",e);
+        }
     }
 
     @Override
@@ -43,10 +50,11 @@ public class GatherMQ_Kafka extends AbstractConsumer<String,byte[]> implements A
     public void testSend(){
         Producer producer=ProducerUtil.getProducer();
         Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(()->{
-            Date cur=new Date();
+            Date time=new Date();
+            HelloV.HelloRequestV1 requestV1= HelloV.HelloRequestV1.newBuilder().setVin(time.toString()).build();
             for (String topic : topics) {
-                producer.send(new ProducerRecord(topic,cur.toString().getBytes()));
+                producer.send(new ProducerRecord(topic,requestV1.toByteArray()));
             }
-        },1,1, TimeUnit.SECONDS);
+        },1,3, TimeUnit.SECONDS);
     }
 }
