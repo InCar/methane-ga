@@ -25,7 +25,7 @@ public class EmptyResourceStoreHandler implements ResourceStoreHandler {
     }
 
     @Override
-    public int put(String id, int start, int end,byte[] data) {
+    public int put(String id, int start,byte[] data) {
         return 0;
     }
 }
