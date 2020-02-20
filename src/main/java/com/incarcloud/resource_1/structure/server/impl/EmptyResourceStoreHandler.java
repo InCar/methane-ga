@@ -3,11 +3,7 @@ package com.incarcloud.resource_1.structure.server.impl;
 import com.incarcloud.resource_1.structure.data.ResourceFragment;
 import com.incarcloud.resource_1.structure.data.ResourceInfo;
 import com.incarcloud.resource_1.structure.server.ResourceStoreHandler;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.stereotype.Component;
 
-@Component
-@ConditionalOnMissingBean(ResourceStoreHandler.class)
 public class EmptyResourceStoreHandler implements ResourceStoreHandler {
     @Override
     public ResourceInfo get(String id) {
