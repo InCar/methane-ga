@@ -20,7 +20,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 
-@Component
+//@Component
 public class GatherMQ_Kafka extends AbstractConsumer<String,byte[]> implements ApplicationListener<ContextRefreshedEvent> {
 
     @Autowired
@@ -44,7 +44,7 @@ public class GatherMQ_Kafka extends AbstractConsumer<String,byte[]> implements A
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         start();
-        testSend();
+//        testSend();
     }
 
     public void testSend(){

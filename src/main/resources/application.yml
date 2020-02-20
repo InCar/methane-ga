@@ -12,7 +12,6 @@ spring:
      cache:
        period: -1
    profiles.active: dev
-   freemarker.cache: false
 
 #  kafka配置
    kafka:
