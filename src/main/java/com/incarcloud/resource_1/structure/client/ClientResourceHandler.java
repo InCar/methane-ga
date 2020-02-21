@@ -3,7 +3,7 @@ package com.incarcloud.resource_1.structure.client;
 /**
  * 资源存储读取处理类
  */
-public interface ResourceHandler {
+public interface ClientResourceHandler {
     /**
      * 创建一个资源
      * @param id

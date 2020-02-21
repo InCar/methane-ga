@@ -2,9 +2,9 @@ package com.incarcloud.resource_1.structure.server.impl;
 
 import com.incarcloud.resource_1.structure.data.ResourceFragment;
 import com.incarcloud.resource_1.structure.data.ResourceInfo;
-import com.incarcloud.resource_1.structure.server.ResourceHandler;
+import com.incarcloud.resource_1.structure.server.ServerResourceHandler;
 
-public class EmptyResourceHandler implements ResourceHandler {
+public class EmptyServerResourceHandler implements ServerResourceHandler {
     @Override
     public ResourceInfo get(String id) {
         return null;

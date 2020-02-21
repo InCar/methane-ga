@@ -5,7 +5,7 @@ import com.incarcloud.resource_1.std.Resource;
 import com.incarcloud.resource_1.std.ResourceServiceGrpc;
 import com.incarcloud.resource_1.structure.data.ResourceFragment;
 import com.incarcloud.resource_1.structure.data.ResourceInfo;
-import com.incarcloud.resource_1.structure.server.ResourceStoreHandler;
+import com.incarcloud.resource_1.structure.server.ServerResourceHandler;
 import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class ResourceService extends ResourceServiceGrpc.ResourceServiceImplBase {
 
     @Autowired
-    ResourceStoreHandler resourceStoreHandler;
+    ServerResourceHandler resourceStoreHandler;
 
     Logger logger= LoggerFactory.getLogger(ResourceService.class);
     @Override
