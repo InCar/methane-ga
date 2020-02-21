@@ -6,7 +6,7 @@ import com.incarcloud.resource_1.structure.data.ResourceFragment;
 /**
  * 资源存储读取处理类
  */
-public interface ResourceStoreHandler {
+public interface ResourceHandler {
     /**
      * 根据资源id获取资源信息
      * @param id
