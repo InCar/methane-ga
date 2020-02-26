@@ -1,9 +1,10 @@
-package com.incarcloud.resource_1.structure.client;
+package com.incarcloud.resource_1.structure.client.impl;
 
 import com.google.protobuf.ByteString;
 import com.incarcloud.resource_1.std.Resource;
 import com.incarcloud.resource_1.std.ResourceServiceGrpc;
 import com.incarcloud.resource_1.std.impl.ResourceService;
+import com.incarcloud.resource_1.structure.client.MockClient;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.ServerBuilder;
